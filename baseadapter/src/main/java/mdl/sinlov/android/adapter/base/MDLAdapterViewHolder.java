@@ -1,4 +1,4 @@
-package mdl.sinlov.android.dapter.base;
+package mdl.sinlov.android.adapter.base;
 
 import android.view.LayoutInflater;
 import android.view.View;
