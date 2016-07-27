@@ -81,11 +81,11 @@ public abstract class MDLAdpater<B> extends BaseAdapter {
     /**
      * fill data
      *
-     * @param viewHolderHelper {@link MDLViewHolderHelper}
+     * @param helper {@link MDLViewHolderHelper}
      * @param position         int
      * @param model            Model
      */
-    protected abstract void fillData(MDLViewHolderHelper viewHolderHelper, int position, B model);
+    protected abstract void fillData(MDLViewHolderHelper helper, int position, B model);
 
     /**
      * @param onItemChildClickListener {@link OnMDLItemChildClickListener}

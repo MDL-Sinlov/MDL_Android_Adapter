@@ -20,9 +20,13 @@
             android:text="This is MDL Adapter Test Case!" />
 
         <Button
+            android:id="@+id/btn_main_base_adapter"
+            style="@style/Sinlov.Button.Menu"
+            android:text="Base View Adapter" />
+
+        <Button
             android:id="@+id/btn_main_recycle_adapter"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/Sinlov.Button.Menu"
             android:text="Recycle View Adapter" />
     </LinearLayout>
 </ScrollView>

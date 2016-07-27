@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="mdl.sinlov.android.adapter.app.ui.BaseAdapterActivity"
+    tools:showIn="@layout/activity_base_adapter">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btn_base_adapter_list_view_ordinary"
+            style="@style/Sinlov.Button.Menu"
+            android:text="Ordinary List View" />
+        <Button
+            android:id="@+id/btn_base_adapter_grid_view_ordinary"
+            style="@style/Sinlov.Button.Menu"
+            android:text="Ordinary Grid View" />
+    </LinearLayout>
+
+
+</ScrollView>
