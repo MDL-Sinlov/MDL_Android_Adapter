@@ -50,18 +50,15 @@ public class TestListViewOrdinaryActivity extends MDLTestActivity {
     private ItemOrdinary dataFirst;
     private ItemOrdinary dataLast;
     private ItemOrdinary dataNew;
-    private ItemOrdinary dataOld;
 
 
     private void initTestData() {
         datasInit = generateDatas(20, "Title: ");
-        datasFirst = generateDatas(2, "First Title: ");
-        datasMore = generateDatas(2, "Last Title: ");
-        dataFirst = generateData(0, "First item");
+        datasFirst = generateDatas(2, "First datas Title: ");
+        datasMore = generateDatas(2, "More datas Title: ");
         dataFirst = generateData(0, "First item");
         dataLast = generateData(0, "Last item");
         dataNew = generateData(0, "New item");
-        dataOld = generateData(0, "Old item");
     }
 
     private ArrayList<ItemOrdinary> generateDatas(int size, String titleMsg) {
@@ -123,12 +120,29 @@ public class TestListViewOrdinaryActivity extends MDLTestActivity {
                 adapter.addLastItem(dataLast);
                 break;
             case R.id.adapter_remove_item:
-                adapter.removeItem(0);
+                if (adapter.getCount() > 1) {
+                    adapter.removeItem(1);
+                    showToast("remove success!");
+                } else {
+                    showToast("no item 2 to replace");
+                }
                 break;
             case R.id.adapter_replace_item:
-                adapter.replaceItem(dataOld, dataNew);
+                if (adapter.getCount() > 1) {
+                    ItemOrdinary dataOld = adapter.getItem(1);
+                    adapter.replaceItem(dataOld, generateData(0, "replace item"));
+                    showToast("replace success!");
+                } else {
+                    showToast("no item 2 to replace");
+                }
                 break;
             case R.id.adapter_swapItem_item:
+                if (adapter.getCount() > 3) {
+                    adapter.swapItem(1, 2);
+                    showToast("swap success!");
+                } else {
+                    showToast("must has 3 item to test");
+                }
                 break;
             case R.id.adapter_add_head_datas:
                 adapter.addHeadDatas(datasFirst);
