@@ -120,7 +120,7 @@ public class TestListViewOrdinaryActivity extends MDLTestActivity {
                 adapter.addFirstItem(dataFirst);
                 break;
             case R.id.adapter_add_item_last:
-                adapter.addFirstItem(dataLast);
+                adapter.addLastItem(dataLast);
                 break;
             case R.id.adapter_remove_item:
                 adapter.removeItem(0);
