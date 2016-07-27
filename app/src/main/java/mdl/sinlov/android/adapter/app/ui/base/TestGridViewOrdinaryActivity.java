@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ListView;
+import android.widget.GridView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,37 +13,37 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import mdl.sinlov.android.adapter.app.R;
-import mdl.sinlov.android.adapter.app.adpater.OrdinaryListViewAdapter;
+import mdl.sinlov.android.adapter.app.adpater.GridViewOrdinaryAdapter;
 import mdl.sinlov.android.adapter.app.module.ItemOrdinary;
 import mdl.sinlov.android.adapter.app.ui.MDLTestActivity;
 import mdl.sinlov.android.adapter.app.utils.RandomString;
 
-public class TestListViewOrdinaryActivity extends MDLTestActivity {
+public class TestGridViewOrdinaryActivity extends MDLTestActivity {
 
-    @BindView(R.id.btn_adapter_clear_item)
-    Button adapterClearItem;
-    @BindView(R.id.btn_adapter_add_item)
-    Button adapterAddItem;
-    @BindView(R.id.btn_adapter_add_item_first)
-    Button adapterAddItemFirst;
-    @BindView(R.id.btn_adapter_add_item_last)
-    Button adapterAddItemLast;
-    @BindView(R.id.btn_adapter_remove_item)
-    Button adapterRemoveItem;
-    @BindView(R.id.btn_adapter_replace_item)
-    Button adapterReplaceItem;
-    @BindView(R.id.btn_adapter_swapItem_item)
-    Button adapterSwapItemItem;
-    @BindView(R.id.btn_adapter_add_head_datas)
-    Button adapterAddHeadDatas;
-    @BindView(R.id.btn_adapter_add_more_datas)
-    Button adapterAddMoreDatas;
-    @BindView(R.id.lv_base_test)
-    ListView lvBaseTest;
     @BindView(R.id.btn_adapter_reset_all)
-    Button adapterResetAll;
+    Button btnAdapterResetAll;
+    @BindView(R.id.btn_adapter_clear_item)
+    Button btnAdapterClearItem;
+    @BindView(R.id.btn_adapter_add_head_datas)
+    Button btnAdapterAddHeadDatas;
+    @BindView(R.id.btn_adapter_add_more_datas)
+    Button btnAdapterAddMoreDatas;
+    @BindView(R.id.btn_adapter_add_item)
+    Button btnAdapterAddItem;
+    @BindView(R.id.btn_adapter_remove_item)
+    Button btnAdapterRemoveItem;
+    @BindView(R.id.btn_adapter_replace_item)
+    Button btnAdapterReplaceItem;
+    @BindView(R.id.btn_adapter_swapItem_item)
+    Button btnAdapterSwapItemItem;
+    @BindView(R.id.btn_adapter_add_item_first)
+    Button btnAdapterAddItemFirst;
+    @BindView(R.id.btn_adapter_add_item_last)
+    Button btnAdapterAddItemLast;
+    @BindView(R.id.gv_ordinary_test)
+    GridView gvOrdinaryTest;
 
-    private OrdinaryListViewAdapter adapter;
+    private GridViewOrdinaryAdapter adapter;
     private List<ItemOrdinary> datasInit;
     private List<ItemOrdinary> datasFirst;
     private List<ItemOrdinary> datasMore;
@@ -51,6 +51,23 @@ public class TestListViewOrdinaryActivity extends MDLTestActivity {
     private ItemOrdinary dataLast;
     private ItemOrdinary dataNew;
 
+    @Override
+    protected void initView(Bundle savedInstanceState) {
+        initTestData();
+        setContentView(R.layout.activity_test_grid_view_ordinary);
+        ButterKnife.bind(this);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        adapter = new GridViewOrdinaryAdapter(this);
+        gvOrdinaryTest.setAdapter(adapter);
+        adapter.addHeadDatas(datasInit);
+    }
+
+    @Override
+    protected void bindListener() {
+
+    }
 
     private void initTestData() {
         datasInit = generateDatas(20, "Title: ");
@@ -83,33 +100,21 @@ public class TestListViewOrdinaryActivity extends MDLTestActivity {
         return item;
     }
 
-    @Override
-    protected void initView(Bundle savedInstanceState) {
-        initTestData();
-        setContentView(R.layout.activity_test_list_view_ordinary);
-        ButterKnife.bind(this);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        adapter = new OrdinaryListViewAdapter(this);
-        lvBaseTest.setAdapter(adapter);
-        adapter.addHeadDatas(datasInit);
-    }
-
-    @Override
-    protected void bindListener() {
-
-    }
-
-    @OnClick({R.id.btn_adapter_clear_item, R.id.btn_adapter_reset_all, R.id.btn_adapter_add_item, R.id.btn_adapter_add_item_first, R.id.btn_adapter_add_item_last, R.id.btn_adapter_remove_item, R.id.btn_adapter_replace_item, R.id.btn_adapter_swapItem_item, R.id.btn_adapter_add_head_datas, R.id.btn_adapter_add_more_datas})
+    @OnClick({R.id.btn_adapter_reset_all, R.id.btn_adapter_clear_item, R.id.btn_adapter_add_head_datas, R.id.btn_adapter_add_more_datas, R.id.btn_adapter_add_item, R.id.btn_adapter_remove_item, R.id.btn_adapter_replace_item, R.id.btn_adapter_swapItem_item, R.id.btn_adapter_add_item_first, R.id.btn_adapter_add_item_last})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_adapter_reset_all:
                 adapter.clear();
-                adapter.setDatas(datasInit);
+                adapter.addHeadDatas(datasInit);
                 break;
             case R.id.btn_adapter_clear_item:
                 adapter.clear();
+                break;
+            case R.id.btn_adapter_add_head_datas:
+                adapter.addHeadDatas(datasFirst);
+                break;
+            case R.id.btn_adapter_add_more_datas:
+                adapter.addMoreDatas(datasMore);
                 break;
             case R.id.btn_adapter_add_item:
                 adapter.addItem(0, dataNew);
@@ -138,12 +143,6 @@ public class TestListViewOrdinaryActivity extends MDLTestActivity {
                 } else {
                     showToast("must has 3 item to test");
                 }
-                break;
-            case R.id.btn_adapter_add_head_datas:
-                adapter.addHeadDatas(datasFirst);
-                break;
-            case R.id.btn_adapter_add_more_datas:
-                adapter.addMoreDatas(datasMore);
                 break;
             case R.id.btn_adapter_add_item_first:
                 adapter.addFirstItem(dataFirst);

@@ -9,6 +9,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import mdl.sinlov.android.adapter.app.R;
+import mdl.sinlov.android.adapter.app.ui.base.TestGridViewOrdinaryActivity;
 import mdl.sinlov.android.adapter.app.ui.base.TestListViewOrdinaryActivity;
 
 public class BaseAdapterActivity extends MDLTestActivity {
@@ -46,6 +47,7 @@ public class BaseAdapterActivity extends MDLTestActivity {
                 skip2Activity(TestListViewOrdinaryActivity.class);
                 break;
             case R.id.btn_base_adapter_grid_view_ordinary:
+                skip2Activity(TestGridViewOrdinaryActivity.class);
                 break;
         }
     }

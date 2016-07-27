@@ -37,6 +37,16 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="mdl.sinlov.android.adapter.app.ui.BaseAdapterActivity" />
         </activity>
+        <activity
+            android:name=".ui.base.TestGridViewOrdinaryActivity"
+            android:label="@string/title_activity_test_grid_view_ordinary"
+            android:launchMode="singleTask"
+            android:parentActivityName=".ui.BaseAdapterActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="mdl.sinlov.android.adapter.app.ui.BaseAdapterActivity" />
+        </activity>
     </application>
 
 </manifest>

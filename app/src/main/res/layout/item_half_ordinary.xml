@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/img_item_horizontal_title"
+        android:layout_width="@dimen/item_img_width_half"
+        android:layout_height="@dimen/item_img_height_half"
+        android:contentDescription="@string/img_ctx_item_horizontal_title"
+        android:layout_marginTop="@dimen/view_vertical_margin_ordinary"
+        android:layout_marginLeft="@dimen/view_vertical_margin_ordinary"
+        android:src="@mipmap/ic_launcher" />
+
+    <TextView
+        android:id="@+id/tv_item_horizontal_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/view_vertical_margin_ordinary"
+        android:layout_alignTop="@id/img_item_horizontal_title"
+        android:layout_marginLeft="@dimen/item_tv_horizontal_margin_left"
+        android:maxLines="1"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_item_horizontal_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_item_horizontal_title"
+        android:layout_marginLeft="@dimen/item_tv_horizontal_margin_left"
+        android:layout_marginTop="@dimen/view_vertical_margin_ordinary"
+        android:maxLines="5" />
+
+    <Button
+        android:id="@+id/btn_item_submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@id/tv_item_horizontal_content"
+        android:layout_alignRight="@id/tv_item_horizontal_content"
+        android:layout_below="@id/tv_item_horizontal_content"
+        android:layout_marginTop="@dimen/view_vertical_margin_ordinary"
+        android:text="ok" />
+
+</RelativeLayout>

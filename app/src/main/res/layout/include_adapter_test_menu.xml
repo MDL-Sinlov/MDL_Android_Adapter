@@ -9,22 +9,22 @@
     <TableRow>
 
         <Button
-            android:id="@+id/adapter_reset_all"
+            android:id="@+id/btn_adapter_reset_all"
             style="@style/Sinlov.Button.Test.Small"
             android:text="reset all" />
 
         <Button
-            android:id="@+id/adapter_clear_item"
+            android:id="@+id/btn_adapter_clear_item"
             style="@style/Sinlov.Button.Test.Small"
             android:text="clear all" />
 
         <Button
-            android:id="@+id/adapter_add_head_datas"
+            android:id="@+id/btn_adapter_add_head_datas"
             style="@style/Sinlov.Button.Test.Small"
             android:text="add head datas" />
 
         <Button
-            android:id="@+id/adapter_add_more_datas"
+            android:id="@+id/btn_adapter_add_more_datas"
             style="@style/Sinlov.Button.Test.Small"
             android:text="add more datas" />
     </TableRow>
@@ -32,22 +32,22 @@
     <TableRow>
 
         <Button
-            android:id="@+id/adapter_add_item"
+            android:id="@+id/btn_adapter_add_item"
             style="@style/Sinlov.Button.Test.Small"
             android:text="add item" />
 
         <Button
-            android:id="@+id/adapter_remove_item"
+            android:id="@+id/btn_adapter_remove_item"
             style="@style/Sinlov.Button.Test.Small"
             android:text="remove item" />
 
         <Button
-            android:id="@+id/adapter_replace_item"
+            android:id="@+id/btn_adapter_replace_item"
             style="@style/Sinlov.Button.Test.Small"
             android:text="replace Item" />
 
         <Button
-            android:id="@+id/adapter_swapItem_item"
+            android:id="@+id/btn_adapter_swapItem_item"
             style="@style/Sinlov.Button.Test.Small"
             android:text="swap item" />
     </TableRow>
@@ -55,12 +55,12 @@
     <TableRow>
 
         <Button
-            android:id="@+id/adapter_add_item_first"
+            android:id="@+id/btn_adapter_add_item_first"
             style="@style/Sinlov.Button.Test.Small"
             android:text="add first item" />
 
         <Button
-            android:id="@+id/adapter_add_item_last"
+            android:id="@+id/btn_adapter_add_item_last"
             style="@style/Sinlov.Button.Test.Small"
             android:text="add last item" />
 
