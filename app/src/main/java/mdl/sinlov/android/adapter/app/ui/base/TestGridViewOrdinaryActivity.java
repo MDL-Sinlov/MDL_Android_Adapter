@@ -3,6 +3,8 @@ package mdl.sinlov.android.adapter.app.ui.base;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
 
@@ -17,6 +19,8 @@ import mdl.sinlov.android.adapter.app.adpater.GridViewOrdinaryAdapter;
 import mdl.sinlov.android.adapter.app.module.ItemOrdinary;
 import mdl.sinlov.android.adapter.app.ui.MDLTestActivity;
 import mdl.sinlov.android.adapter.app.utils.RandomString;
+import mdl.sinlov.android.adapter.base.OnMDLItemChildClickListener;
+import mdl.sinlov.android.adapter.base.OnMDLItemChildLongClickListener;
 
 public class TestGridViewOrdinaryActivity extends MDLTestActivity {
 
@@ -66,7 +70,36 @@ public class TestGridViewOrdinaryActivity extends MDLTestActivity {
 
     @Override
     protected void bindListener() {
-
+        gvOrdinaryTest.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String result = "onItemClick Msg:\n" + adapter.getDatas().get(position).getTitle();
+                showToast(result);
+            }
+        });
+        adapter.setOnItemChildClickListener(new OnMDLItemChildClickListener() {
+            @Override
+            public void onItemChildClick(ViewGroup parent, View childView, int position) {
+                String result = "onItemChildClick Msg:\n" + adapter.getDatas().get(position).getTitle();
+                showToast(result);
+            }
+        });
+        gvOrdinaryTest.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                String result = "onItemLongClick Msg:\n" + adapter.getDatas().get(position).getTitle();
+                showToast(result);
+                return false;
+            }
+        });
+        adapter.setOnItemChildLongClickListener(new OnMDLItemChildLongClickListener() {
+            @Override
+            public boolean onItemChildLongClick(ViewGroup parent, View childView, int position) {
+                String result = "onItemChildLongClick Msg:\n" + adapter.getDatas().get(position).getTitle();
+                showToast(result);
+                return false;
+            }
+        });
     }
 
     private void initTestData() {

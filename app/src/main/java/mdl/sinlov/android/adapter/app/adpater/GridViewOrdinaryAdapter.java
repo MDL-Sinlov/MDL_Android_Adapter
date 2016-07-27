@@ -33,5 +33,7 @@ public class GridViewOrdinaryAdapter extends MDLAdpater<ItemOrdinary> {
     protected void fillData(MDLViewHolderHelper helper, int position, ItemOrdinary model) {
         helper.setText(R.id.tv_item_horizontal_title, model.getTitle());
         helper.setText(R.id.tv_item_horizontal_content, model.getContent());
+        helper.setItemChildClickListener(R.id.btn_item_submit);
+        helper.setItemChildLongClickListener(R.id.btn_item_submit);
     }
 }
