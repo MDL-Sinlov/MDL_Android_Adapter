@@ -40,26 +40,55 @@ public class TestListViewOrdinaryActivity extends MDLTestActivity {
     Button adapterAddMoreDatas;
     @BindView(R.id.lv_base_test)
     ListView lvBaseTest;
+    @BindView(R.id.adapter_reset_all)
+    Button adapterResetAll;
 
-    private List<ItemOrdinary> datasInit;
     private OrdinaryListViewAdapter adapter;
+    private List<ItemOrdinary> datasInit;
+    private List<ItemOrdinary> datasFirst;
+    private List<ItemOrdinary> datasMore;
+    private ItemOrdinary dataFirst;
+    private ItemOrdinary dataLast;
+    private ItemOrdinary dataNew;
+    private ItemOrdinary dataOld;
 
 
-    private void initTextData() {
-        datasInit = new ArrayList<>();
-        for (int i = 0; i < 20; i++) {
+    private void initTestData() {
+        datasInit = generateDatas(20, "Title: ");
+        datasFirst = generateDatas(2, "First Title: ");
+        datasMore = generateDatas(2, "Last Title: ");
+        dataFirst = generateData(0, "First item");
+        dataFirst = generateData(0, "First item");
+        dataLast = generateData(0, "Last item");
+        dataNew = generateData(0, "New item");
+        dataOld = generateData(0, "Old item");
+    }
+
+    private ArrayList<ItemOrdinary> generateDatas(int size, String titleMsg) {
+        ArrayList<ItemOrdinary> datas = new ArrayList<>();
+        for (int i = 0; i < size; i++) {
             ItemOrdinary item = new ItemOrdinary();
             item.setCheck(false);
-            item.setId(i);
-            item.setTitle("Title: " + i);
-            item.setContent(RandomString.generateMixString(240));
-            datasInit.add(item);
+            item.setIdView(i);
+            item.setTitle(titleMsg + i);
+            item.setContent(RandomString.generateMixString(120));
+            datas.add(item);
         }
+        return datas;
+    }
+
+    private ItemOrdinary generateData(int idView, String titleMsg) {
+        ItemOrdinary item = new ItemOrdinary();
+        item.setCheck(false);
+        item.setTitle(titleMsg);
+        item.setIdView(idView);
+        item.setContent(RandomString.generateMixString(120));
+        return item;
     }
 
     @Override
     protected void initView(Bundle savedInstanceState) {
-        initTextData();
+        initTestData();
         setContentView(R.layout.activity_test_list_view_ordinary);
         ButterKnife.bind(this);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -74,28 +103,39 @@ public class TestListViewOrdinaryActivity extends MDLTestActivity {
         adapter.addHeadDatas(datasInit);
     }
 
-    @OnClick({R.id.adapter_clear_item, R.id.adapter_add_item, R.id.adapter_add_item_first, R.id.adapter_add_item_last, R.id.adapter_remove_item, R.id.adapter_replace_item, R.id.adapter_swapItem_item, R.id.adapter_add_head_datas, R.id.adapter_add_more_datas})
+    @OnClick({R.id.adapter_clear_item, R.id.adapter_reset_all, R.id.adapter_add_item, R.id.adapter_add_item_first, R.id.adapter_add_item_last, R.id.adapter_remove_item, R.id.adapter_replace_item, R.id.adapter_swapItem_item, R.id.adapter_add_head_datas, R.id.adapter_add_more_datas})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.adapter_clear_item:
+                adapter.clear();
+                break;
+            case R.id.adapter_reset_all:
+                adapter.clear();
+                adapter.addHeadDatas(datasInit);
                 break;
             case R.id.adapter_add_item:
+                adapter.addItem(0, dataNew);
                 break;
             case R.id.adapter_add_item_first:
+                adapter.addFirstItem(dataFirst);
                 break;
             case R.id.adapter_add_item_last:
+                adapter.addFirstItem(dataLast);
                 break;
             case R.id.adapter_remove_item:
+                adapter.removeItem(0);
                 break;
             case R.id.adapter_replace_item:
+                adapter.replaceItem(dataOld, dataNew);
                 break;
             case R.id.adapter_swapItem_item:
                 break;
             case R.id.adapter_add_head_datas:
+                adapter.addHeadDatas(datasFirst);
                 break;
             case R.id.adapter_add_more_datas:
+                adapter.addMoreDatas(datasMore);
                 break;
         }
     }
-
 }

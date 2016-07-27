@@ -18,18 +18,18 @@ package mdl.sinlov.android.adapter.app.module;
  * Created by "sinlov" on 16/7/27.
  */
 public class ItemOrdinary {
-    private int id;
+    private int idView;
     private boolean isCheck;
     private String title;
     private String content;
     private String imgURL;
 
-    public int getId() {
-        return id;
+    public int getIdView() {
+        return idView;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdView(int idView) {
+        this.idView = idView;
     }
 
     public boolean isCheck() {

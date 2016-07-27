@@ -13,9 +13,9 @@
             android:text="clear item" />
 
         <Button
-            android:id="@+id/adapter_add_item"
+            android:id="@+id/adapter_reset_all"
             style="@style/Sinlov.Button.Test.Small"
-            android:text="add item" />
+            android:text="reset all" />
 
         <Button
             android:id="@+id/adapter_add_item_first"
@@ -58,6 +58,10 @@
             android:id="@+id/adapter_add_more_datas"
             style="@style/Sinlov.Button.Test.Small"
             android:text="add more datas" />
+        <Button
+            android:id="@+id/adapter_add_item"
+            style="@style/Sinlov.Button.Test.Small"
+            android:text="add item" />
     </TableRow>
 
 
