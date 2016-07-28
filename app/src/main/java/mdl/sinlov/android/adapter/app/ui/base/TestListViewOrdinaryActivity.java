@@ -121,7 +121,7 @@ public class TestListViewOrdinaryActivity extends MDLTestActivity {
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 String result = "onItemLongClick Msg:\n" + adapter.getDatas().get(position).getTitle();
                 showToast(result);
-                return false;
+                return true;
             }
         });
         adapter.setOnItemChildLongClickListener(new OnMDLItemChildLongClickListener() {
@@ -129,7 +129,7 @@ public class TestListViewOrdinaryActivity extends MDLTestActivity {
             public boolean onItemChildLongClick(ViewGroup parent, View childView, int position) {
                 String result = "onItemChildLongClick Msg:\n" + adapter.getDatas().get(position).getTitle();
                 showToast(result);
-                return false;
+                return true;
             }
         });
     }
