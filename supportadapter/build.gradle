@@ -23,3 +23,6 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:recyclerview-v7:23.1.1'
 }
+
+// uploadArchives without javadoc
+apply from: "https://github.com/sinlov/Gradle_Zoo/raw/master/github/android/github-archives-no-javadoc.gradle"
