@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MDL_Android_Adapter</string>
+    <string name="app_name">Adapter</string>
     <string name="title_activity_base_adapter">BaseAdapterActivity</string>
     <string name="title_activity_test_list_view_ordinary">TestListViewOrdinary</string>
     <string name="img_ctx_item_horizontal_title">img:ctx:item:horizontal:title</string>
