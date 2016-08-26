@@ -9,8 +9,8 @@ android {
         applicationId "mdl.sinlov.android.adapter.app"
         minSdkVersion 14
         targetSdkVersion 23
-        versionCode 1
-        versionName "1.0"
+        versionCode VERSION_CODE as int
+        versionName VERSION_NAME
     }
     buildTypes {
         release {
