@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 apply plugin: 'android-apt'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.3"
+    compileSdkVersion ANDROID_COMPILE_SDK_VERSION as int
+    buildToolsVersion ANDROID_BUILD_TOOLS_VERSION
 
     defaultConfig {
         applicationId "mdl.sinlov.android.adapter.app"
-        minSdkVersion 14
-        targetSdkVersion 23
+        minSdkVersion ANDROID_MIN_SDK_VERSION as int
+        targetSdkVersion ANDORID_TARGET_SDK_VERSION as int
         versionCode VERSION_CODE as int
         versionName VERSION_NAME
     }
